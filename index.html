@@ -24,8 +24,31 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('_DSC0118.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Hero Image.jpg') no-repeat center center/cover;
         }
+        
+        #services {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        #services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('Background Image.jpg') no-repeat center center;
+            background-size: cover;
+            transform: scale(1.15);
+            transition: transform 5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: -1;
+        }
+        #services.is-visible::before {
+            transform: scale(1);
+        }
+
         .cta-button {
             transition: all 0.3s ease;
         }
@@ -47,7 +70,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         .gallery-image-container {
-            aspect-ratio: 2 / 3; /* Aspect ratio for portrait images */
+            aspect-ratio: 4 / 3; /* Aspect ratio for landscape images */
         }
         .gallery-image {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -190,15 +213,15 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
+        <section id="services" class="py-20 animate-on-scroll">
+            <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-12 animate-on-scroll fade-in-up">
                     <h2 class="text-3xl font-bold text-gray-800">Our Services</h2>
-                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Comprehensive solutions to meet all your construction needs from concept to completion.</p>
+                    <p class="text-gray-700 mt-2 max-w-2xl mx-auto">Comprehensive solutions to meet all your construction needs from concept to completion.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Service Card 1 -->
-                    <div class="bg-gray-50 p-8 rounded-lg text-center service-card animate-on-scroll fade-in-up">
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg text-center service-card animate-on-scroll fade-in-up">
                         <div class="bg-orange-100 text-[#f6b757] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-hard-hat text-3xl"></i>
                         </div>
@@ -206,7 +229,7 @@
                         <p class="text-gray-600">We manage every aspect of your project, ensuring it's delivered on time, within budget, and to the highest standards.</p>
                     </div>
                     <!-- Service Card 2 -->
-                    <div class="bg-gray-50 p-8 rounded-lg text-center service-card animate-on-scroll fade-in-up" style="transition-delay: 150ms;">
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg text-center service-card animate-on-scroll fade-in-up" style="transition-delay: 150ms;">
                         <div class="bg-orange-100 text-[#f6b757] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-drafting-compass text-3xl"></i>
                         </div>
@@ -214,7 +237,7 @@
                         <p class="text-gray-600">A streamlined process from initial design to final construction, offering a single point of contact and responsibility.</p>
                     </div>
                     <!-- Service Card 3 -->
-                    <div class="bg-gray-50 p-8 rounded-lg text-center service-card animate-on-scroll fade-in-up" style="transition-delay: 300ms;">
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg text-center service-card animate-on-scroll fade-in-up" style="transition-delay: 300ms;">
                         <div class="bg-orange-100 text-[#f6b757] rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-home text-3xl"></i>
                         </div>
@@ -234,16 +257,16 @@
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="animate-on-scroll fade-in-up gallery-image-container">
-                        <img src="_DSC0115.jpg" alt="Gallery Image 1" class="rounded-lg shadow-md gallery-image">
+                        <img src="_DSC0116.jpg" alt="Gallery Image 1" class="rounded-lg shadow-md gallery-image">
                     </div>
                      <div class="animate-on-scroll fade-in-up gallery-image-container" style="transition-delay: 100ms;">
-                        <img src="_DSC0116.jpg" alt="Gallery Image 2" class="rounded-lg shadow-md gallery-image">
+                        <img src="_DSC0115.jpg" alt="Gallery Image 2" class="rounded-lg shadow-md gallery-image">
                     </div>
                      <div class="animate-on-scroll fade-in-up gallery-image-container" style="transition-delay: 200ms;">
                         <img src="_DSC0117.jpg" alt="Gallery Image 3" class="rounded-lg shadow-md gallery-image">
                     </div>
                      <div class="animate-on-scroll fade-in-up gallery-image-container" style="transition-delay: 300ms;">
-                        <img src="_DSC0118.jpg" alt="Gallery Image 4" class="rounded-lg shadow-md gallery-image">
+                        <img src="_DSC0096.jpg" alt="Gallery Image 4" class="rounded-lg shadow-md gallery-image">
                     </div>
                      <div class="animate-on-scroll fade-in-up gallery-image-container" style="transition-delay: 400ms;">
                         <img src="_DSC0102.jpg" alt="Gallery Image 5" class="rounded-lg shadow-md gallery-image">
@@ -252,7 +275,7 @@
                         <img src="_DSC0105.jpg" alt="Gallery Image 6" class="rounded-lg shadow-md gallery-image">
                     </div>
                      <div class="animate-on-scroll fade-in-up gallery-image-container" style="transition-delay: 600ms;">
-                        <img src="_DSC0111.jpg" alt="Gallery Image 7" class="rounded-lg shadow-md gallery-image">
+                        <img src="_DSC0118.jpg" alt="Gallery Image 7" class="rounded-lg shadow-md gallery-image">
                     </div>
                      <div class="animate-on-scroll fade-in-up gallery-image-container" style="transition-delay: 700ms;">
                         <img src="_DSC0112.jpg" alt="Gallery Image 8" class="rounded-lg shadow-md gallery-image">
@@ -603,21 +626,31 @@
 
         // Scroll Animation Logic
         const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        const servicesSection = document.getElementById('services');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    if (!entry.target.classList.contains('pop-in')) {
+                    if(entry.target.id === 'services') {
+                        // Don't unobserve the services section to allow re-animation
+                    } else if (!entry.target.classList.contains('pop-in')) {
                        observer.unobserve(entry.target);
                     }
                 } else {
                      if (entry.target.classList.contains('pop-in')) {
                         entry.target.classList.remove('is-visible');
                     }
+                     if(entry.target.id === 'services') {
+                        entry.target.classList.remove('is-visible');
+                    }
                 }
             });
         }, { threshold: 0.15 });
+        
         animatedElements.forEach(el => observer.observe(el));
+        if (servicesSection) {
+            observer.observe(servicesSection);
+        }
     });
     </script>
 

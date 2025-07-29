@@ -13,11 +13,10 @@
             overflow-x: hidden; /* Prevents horizontal scrollbar from animations */
             user-select: none; /* Prevents text selection and typing cursor */
             cursor: default; /* Sets the default cursor for the whole page */
-            background-color: #fff; /* Fallback */
-            background-image: linear-gradient(to bottom, #fffef5 0%, #ffffff 25%, #fff5f5 50%, #ffffff 75%, #fffef5 100%);
+            background-color: #f9fafb; /* A light gray fallback */
         }
         /* Ensure interactive elements are still clearly clickable */
-        a, button, .project-card, .service-card, label, .gallery-image, .slider-slide {
+        a, button, .project-card, .service-card, label, .gallery-image {
             cursor: pointer;
         }
         input, textarea {
@@ -43,6 +42,31 @@
             z-index: -1;
         }
         
+        .background-section {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .background-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center center;
+            z-index: -1;
+        }
+
+        #about::before {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('Background_Image.jpg');
+            animation: zoomIn 30s ease-in-out infinite alternate;
+        }
+        #services::before {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('Hero_Image.jpg');
+        }
+        #testimonials::before {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('Background_Image.jpg');
+        }
+
         .cta-button {
             transition: all 0.3s ease;
         }
@@ -159,9 +183,9 @@
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+        <section id="about" class="py-20 background-section">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid md:grid-cols-2 gap-12 items-center bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
                     <div class="animate-on-scroll fade-in-left">
                         <img src="_DSC0111.jpg" alt="BCS Builders Team" class="rounded-lg shadow-xl w-full">
                     </div>
@@ -176,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-20 grid md:grid-cols-3 gap-8 items-center">
+                <div class="mt-20 grid md:grid-cols-3 gap-8 items-center bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
                      <div class="md:col-span-1 flex justify-center animate-on-scroll fade-in-up">
                         <img src="aman.JPG" alt="Meet the Builders" class="rounded-full shadow-xl w-48 h-48 md:w-64 md:h-64 object-cover">
                     </div>
@@ -199,9 +223,9 @@
                     <div class="flex flex-col md:flex-row">
                         <div class="md:w-1/2 slider-container">
                             <div class="slider-wrapper">
-                                <div class="slider-slide project-image-enlargeable" style="background-image: url('Punam_Enclave_Hero.jpg'); background-size: cover; background-position: center 85%;"></div>
-                                <div class="slider-slide project-image-enlargeable"><img src="Punam_Enclave_3D.jpg" alt="Punam Enclave 3D Plan" class="w-full h-full object-contain"></div>
-                                <div class="slider-slide project-image-enlargeable"><img src="Punam_Enclave_Floorplan.jpg" alt="Punam Enclave Floorplan" class="w-full h-full object-contain"></div>
+                                <div class="slider-slide" style="background-image: url('Punam_Enclave_Hero.jpg'); background-size: cover; background-position: center 85%;"></div>
+                                <div class="slider-slide"><img src="Punam_Enclave_3D.jpg" alt="Punam Enclave 3D Plan" class="w-full h-full object-contain"></div>
+                                <div class="slider-slide"><img src="Punam_Enclave_Floorplan.jpg" alt="Punam Enclave Floorplan" class="w-full h-full object-contain"></div>
                             </div>
                             <button class="slider-prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition"><i class="fas fa-chevron-left"></i></button>
                             <button class="slider-next absolute top-1/2 right-2 -translate-y-1/2 bg-black/30 text-white p-2 rounded-full hover:bg-black/50 transition"><i class="fas fa-chevron-right"></i></button>
@@ -231,7 +255,7 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="py-20">
+        <section id="services" class="py-20 background-section">
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-12 animate-on-scroll fade-in-up">
                     <h2 class="text-3xl font-bold text-gray-800">Our Services</h2>
@@ -303,22 +327,22 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section id="testimonials" class="py-20 bg-white/70">
-            <div class="container mx-auto px-6">
+        <section id="testimonials" class="py-20 background-section">
+            <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-12 animate-on-scroll fade-in-up">
                     <h2 class="text-3xl font-bold text-gray-800">What Our Clients Say</h2>
                     <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Our reputation is built on the satisfaction of the families and businesses we serve.</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
                     <!-- Testimonial 1 -->
-                    <div class="bg-white p-8 rounded-lg animate-on-scroll fade-in-up shadow-lg">
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg animate-on-scroll fade-in-up shadow-lg">
                         <i class="fas fa-quote-left text-3xl text-[#f6b757] mb-4"></i>
                         <p class="text-gray-600 mb-6">We booked our flat in Punam Enclave at an early stage, and we've been so impressed with the transparency and the quality of construction so far. The team is professional and always keeps us updated.</p>
                         <div class="font-semibold text-gray-800">- R. Verma</div>
                         <div class="text-sm text-gray-500">Future Punam Enclave Resident</div>
                     </div>
                     <!-- Testimonial 2 -->
-                    <div class="bg-white p-8 rounded-lg animate-on-scroll fade-in-up" style="transition-delay: 150ms; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);">
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg animate-on-scroll fade-in-up" style="transition-delay: 150ms; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);">
                         <i class="fas fa-quote-left text-3xl text-[#f6b757] mb-4"></i>
                         <p class="text-gray-600 mb-6">Securing our future home with BCS Builders was a great decision. The early-bird rates were fantastic, and seeing the project progress with such high-quality materials gives us immense confidence.</p>
                         <div class="font-semibold text-gray-800">- Priya & Sameer</div>
@@ -643,19 +667,14 @@
 
 
         // Gallery Modal Logic
-        const galleryImages = document.querySelectorAll('.gallery-image, .project-image-enlargeable');
+        const galleryImages = document.querySelectorAll('.gallery-image');
         const galleryModal = document.getElementById('gallery-modal');
         const galleryModalImage = document.getElementById('gallery-modal-image');
         const closeGalleryModalButton = document.getElementById('close-gallery-modal');
 
         galleryImages.forEach(image => {
             image.addEventListener('click', () => {
-                if (image.tagName === 'IMG') {
-                    galleryModalImage.src = image.src;
-                } else {
-                    // Handle div with background image
-                    galleryModalImage.src = image.style.backgroundImage.slice(4, -1).replace(/"/g, "");
-                }
+                galleryModalImage.src = image.src;
                 openModal(galleryModal);
             });
         });

@@ -13,6 +13,8 @@
             overflow-x: hidden; /* Prevents horizontal scrollbar from animations */
             user-select: none; /* Prevents text selection and typing cursor */
             cursor: default; /* Sets the default cursor for the whole page */
+            background-color: #fff; /* Fallback */
+            background-image: linear-gradient(to bottom, #fffef5 0%, #ffffff 25%, #fff5f5 50%, #ffffff 75%, #fffef5 100%);
         }
         /* Ensure interactive elements are still clearly clickable */
         a, button, .project-card, .service-card, label, .gallery-image {
@@ -24,13 +26,14 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Hero Image.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Hero_Image.jpg') no-repeat center center/cover;
         }
         
         #services {
             position: relative;
             overflow: hidden;
             z-index: 1;
+            background-color: transparent; /* Allow body gradient to show */
         }
         #services::before {
             content: '';
@@ -39,7 +42,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('Background Image.jpg') no-repeat center center;
+            background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('Background_Image.jpg') no-repeat center center;
             background-size: cover;
             transform: scale(1.15);
             transition: transform 5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -55,12 +58,6 @@
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-        .project-overlay {
-            transition: opacity 0.4s ease;
         }
         .service-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -101,43 +98,46 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="text-gray-800">
 
     <!-- Header & Navigation -->
     <header class="bg-white shadow-md sticky top-0 z-40">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="h-10">
-                <img src="BCS Old.jpg" alt="BCS Builders Logo" class="h-full w-auto">
-            </a>
-            <div class="hidden md:flex space-x-8 items-center">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex-1 min-w-0">
+                <a href="#" class="h-14 inline-block">
+                    <img src="BCS Old.jpg" alt="BCS Builders Logo" class="h-full w-auto">
+                </a>
+            </div>
+            
+            <div class="hidden lg:flex flex-1 justify-center items-center space-x-3">
+                <a href="tel:+919801063161" class="bg-[#ff5757] text-white px-4 py-2 rounded-md hover:bg-[#ff6f6f] transition cta-button flex items-center text-base font-semibold"><i class="fas fa-phone-alt mr-2"></i> Call Us</a>
+                <a href="https://wa.me/919801063161" target="_blank" rel="noopener noreferrer" class="bg-[#ff5757] text-white px-4 py-2 rounded-md hover:bg-[#ff6f6f] transition cta-button flex items-center text-base font-semibold"><i class="fab fa-whatsapp mr-2"></i> WhatsApp</a>
+                <a href="mailto:bcscelestialbuilders@gmail.com" class="bg-[#ff5757] text-white px-4 py-2 rounded-md hover:bg-[#ff6f6f] transition cta-button flex items-center text-base font-semibold"><i class="fas fa-envelope mr-2"></i> Email Us</a>
+            </div>
+
+            <div class="hidden lg:flex flex-1 justify-end items-center space-x-6">
                 <a href="#about" class="text-gray-600 hover:text-[#f6b757] transition">About Us</a>
                 <a href="#projects" class="text-gray-600 hover:text-[#f6b757] transition">Projects</a>
                 <a href="#services" class="text-gray-600 hover:text-[#f6b757] transition">Services</a>
                 <a href="#gallery" class="text-gray-600 hover:text-[#f6b757] transition">Gallery</a>
-                <div class="relative">
-                    <button id="contact-dropdown-button" class="bg-[#ff5757] text-white px-4 py-2 rounded-md hover:bg-[#ff6f6f] transition cta-button flex items-center">
-                        Contact Us <i class="fas fa-caret-down ml-2"></i>
-                    </button>
-                    <div id="contact-dropdown-menu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                        <a href="tel:+919801063161" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-phone-alt mr-2 text-[#f6b757]"></i>Call Us</a>
-                        <a href="mailto:bcscelestialbuilders@gmail.com" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fas fa-envelope mr-2 text-[#f6b757]"></i>Email Us</a>
-                        <a href="https://wa.me/919801063161" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"><i class="fab fa-whatsapp mr-2 text-[#f6b757]"></i>WhatsApp Us</a>
-                    </div>
-                </div>
+                <a href="#testimonials" class="text-gray-600 hover:text-[#f6b757] transition">Testimonials</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+            <button id="mobile-menu-button" class="lg:hidden text-gray-600">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-4">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white py-4">
             <a href="#about" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
             <a href="#projects" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Projects</a>
             <a href="#services" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Services</a>
             <a href="#gallery" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Gallery</a>
-            <a href="tel:+919801063161" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Call Us</a>
-            <a href="mailto:bcscelestialbuilders@gmail.com" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Email Us</a>
-            <a href="https://wa.me/919801063161" target="_blank" rel="noopener noreferrer" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">WhatsApp Us</a>
+            <a href="#testimonials" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Testimonials</a>
+            <div class="border-t mt-2 pt-2 px-6 space-y-2">
+                <a href="tel:+919801063161" class="block py-2 text-gray-600 hover:bg-gray-100"><i class="fas fa-phone-alt mr-2 text-[#f6b757]"></i> Call Us</a>
+                <a href="https://wa.me/919801063161" target="_blank" rel="noopener noreferrer" class="block py-2 text-gray-600 hover:bg-gray-100"><i class="fab fa-whatsapp mr-2 text-[#f6b757]"></i> WhatsApp Us</a>
+                <a href="mailto:bcscelestialbuilders@gmail.com" class="block py-2 text-gray-600 hover:bg-gray-100"><i class="fas fa-envelope mr-2 text-[#f6b757]"></i> Email Us</a>
+            </div>
         </div>
     </header>
 
@@ -152,7 +152,7 @@
         </section>
 
         <!-- About Us Section -->
-        <section id="about" class="py-20 bg-white">
+        <section id="about" class="py-20">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="animate-on-scroll fade-in-left">
@@ -160,52 +160,57 @@
                     </div>
                     <div class="animate-on-scroll fade-in-right">
                         <h2 class="text-3xl font-bold text-gray-800 mb-4">About B<span class="text-[#ff5757]">C</span>S Builders</h2>
-                        <p class="text-gray-600 mb-4">
-                            Based in the heart of Morabadi, Ranchi, BCS Builders has been a cornerstone of local construction and development for over a decade. We are a team of passionate professionals dedicated to creating spaces that are not just buildings, but homes and thriving business environments.
-                        </p>
                         <p class="text-gray-600 mb-6">
-                            Our philosophy is simple: combine modern architectural design with robust engineering and transparent processes. We believe in building lasting relationships with our clients, founded on trust and the shared goal of bringing their vision to life.
+                            Based in the heart of Morabadi, Ranchi, BCS Builders has been a cornerstone of local construction and development for over a decade. We are a team of passionate professionals dedicated to creating spaces that are not just buildings, but homes and thriving business environments. Our philosophy is simple: combine modern architectural design with robust engineering and transparent processes.
                         </p>
-                        <div class="flex space-x-8">
-                            <div class="text-center">
-                                <span class="text-3xl font-bold text-[#f6b757]">10+</span>
-                                <p class="text-gray-500">Years of Experience</p>
-                            </div>
-                            <div class="text-center">
-                                <span class="text-3xl font-bold text-[#f6b757]">200+</span>
-                                <p class="text-gray-500">Employees</p>
-                            </div>
-                            <div class="text-center">
-                                <span class="text-3xl font-bold text-[#f6b757]">100%</span>
-                                <p class="text-gray-500">Client Satisfaction</p>
-                            </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-[#f6b757]">100%</div>
+                            <p class="text-gray-600 font-semibold">Guaranteed Client Satisfaction</p>
                         </div>
+                    </div>
+                </div>
+                <div class="mt-20 grid md:grid-cols-3 gap-8 items-center">
+                     <div class="md:col-span-1 flex justify-center animate-on-scroll fade-in-up">
+                        <img src="aman.JPG" alt="Meet the Builders" class="rounded-full shadow-xl w-48 h-48 md:w-64 md:h-64 object-cover">
+                    </div>
+                    <div class="md:col-span-2 animate-on-scroll fade-in-up" style="transition-delay: 150ms;">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3">Meet the Builders: Aman Gupta and Abhi Gupta</h3>
+                        <p class="text-gray-600">Following in the entrepreneurial footsteps of their father, who established a renowned clothing business in the heart of Ranchi, brothers Aman and Abhi Gupta bring a legacy of quality and trust to the construction industry. Together, they are building a new future for the city, one exceptional home at a time.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-20">
+        <section id="projects" class="py-20 bg-white/70">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 animate-on-scroll fade-in-up">
                     <h2 class="text-3xl font-bold text-gray-800">Our Landmark Project</h2>
                     <p class="text-gray-600 mt-2 max-w-2xl mx-auto">A showcase of our dedication to excellence in residential construction.</p>
                 </div>
-                <div class="flex justify-center">
-                    <!-- Project Card 1 -->
-                    <div id="project-card-trigger" class="bg-white rounded-lg shadow-lg overflow-hidden group project-card animate-on-scroll fade-in-up md:w-2/3 lg:w-1/2">
-                        <div class="relative">
-                            <img src="bcs.jpg" alt="Punam Enclave" class="w-full h-72 object-cover">
-                            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 project-overlay flex items-center justify-center">
-                                <p class="text-white text-lg font-semibold">View Details</p>
-                            </div>
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden animate-on-scroll fade-in-up">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/2">
+                            <img src="bcs.jpg" alt="Punam Enclave" class="w-full h-full object-cover">
                         </div>
-                        <div class="p-6 text-center">
-                            <h3 class="text-xl font-semibold mb-1">Punam Enclave</h3>
-                            <p class="text-xs text-gray-500 mb-2">(previously named Celestial Castle)</p>
-                            <p class="text-gray-600 mb-4">A serene residential complex in Morabadi, offering modern amenities amidst nature.</p>
-                            <span class="text-sm font-medium text-green-800 bg-green-100 px-3 py-1 rounded-full">Ongoing</span>
+                        <div class="p-8 md:w-1/2 flex flex-col justify-center">
+                             <h3 class="text-2xl font-bold text-gray-800">Punam Enclave</h3>
+                             <p class="text-sm text-gray-500 mb-4">(previously named Celestial Castle)</p>
+                             <p class="text-gray-600 mb-6">A G+4 strong building in the heart of Morabadi, which is the lungs of Ranchi town. Amidst the lush greenery is this abode you can call your home. 3BHK luxurious flats with:</p>
+                             <ul class="list-none space-y-3">
+                                <li class="flex items-center"><i class="fas fa-users mr-3 text-[#f6b757]"></i>A Community Space</li>
+                                <li class="flex items-center"><i class="fas fa-video mr-3 text-[#f6b757]"></i>CCTV Surveillance</li>
+                                <li class="flex items-center"><i class="fas fa-gopuram mr-3 text-[#f6b757]"></i>Temple within the premises</li>
+                                <li class="flex items-center"><i class="fas fa-elevator mr-3 text-[#f6b757]"></i>Lift</li>
+                                <li class="flex items-center"><i class="fas fa-tint mr-3 text-[#f6b757]"></i>24x7 Water Supply</li>
+                            </ul>
+                            <p class="pt-6 font-semibold text-gray-700">All 3BHKs ranging from 1465 to 1510 sqft.</p>
+                            <span class="mt-4 text-sm font-medium text-green-800 bg-green-100 px-3 py-1 rounded-full self-start">Ongoing</span>
+                            <div class="mt-8">
+                                <a href="tel:+919801063161" class="w-full bg-[#ff5757] text-white px-8 py-4 rounded-md hover:bg-[#ff6f6f] transition cta-button font-semibold text-lg flex items-center justify-center">
+                                    <i class="fas fa-phone-alt mr-3"></i> Call to Book
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -284,6 +289,32 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20 bg-white/70">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 animate-on-scroll fade-in-up">
+                    <h2 class="text-3xl font-bold text-gray-800">What Our Clients Say</h2>
+                    <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Our reputation is built on the satisfaction of the families and businesses we serve.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-lg animate-on-scroll fade-in-up shadow-lg">
+                        <i class="fas fa-quote-left text-3xl text-[#f6b757] mb-4"></i>
+                        <p class="text-gray-600 mb-6">We booked our flat in Punam Enclave at an early stage, and we've been so impressed with the transparency and the quality of construction so far. The team is professional and always keeps us updated.</p>
+                        <div class="font-semibold text-gray-800">- R. Verma</div>
+                        <div class="text-sm text-gray-500">Future Punam Enclave Resident</div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-lg animate-on-scroll fade-in-up" style="transition-delay: 150ms; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);">
+                        <i class="fas fa-quote-left text-3xl text-[#f6b757] mb-4"></i>
+                        <p class="text-gray-600 mb-6">Securing our future home with BCS Builders was a great decision. The early-bird rates were fantastic, and seeing the project progress with such high-quality materials gives us immense confidence.</p>
+                        <div class="font-semibold text-gray-800">- Priya & Sameer</div>
+                        <div class="text-sm text-gray-500">Future Punam Enclave Residents</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA Section -->
         <section class="bg-[#ff5757]">
             <div class="container mx-auto px-6 py-16 text-center text-white">
@@ -314,6 +345,7 @@
                         <li><a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
                         <li><a href="#gallery" class="text-gray-400 hover:text-white transition">Gallery</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
                         <li><a href="#privacy-policy" id="privacy-policy-link" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
                     </ul>
                 </div>
@@ -414,27 +446,9 @@
             </div>
         </div>
     </section>
-
-    <section id="project-details-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
-        <div class="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full relative">
-            <button id="close-project-details-modal" class="absolute top-2 right-4 text-gray-500 hover:text-black text-3xl font-bold">&times;</button>
-            <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Punam Enclave Details</h2>
-            <div class="text-gray-600 space-y-4 text-left" style="cursor: auto; user-select: text;">
-                <p>A G+4 strong building in the heart of Morabadi, which is the lungs of Ranchi town. Amidst the lush greenery is this abode you can call your home. 3BHK luxurious flats with -</p>
-                <ul class="list-none space-y-3 pl-2">
-                    <li class="flex items-center"><i class="fas fa-users mr-3 text-[#f6b757]"></i>A Community Space</li>
-                    <li class="flex items-center"><i class="fas fa-video mr-3 text-[#f6b757]"></i>CCTV Surveillance</li>
-                    <li class="flex items-center"><i class="fas fa-gopuram mr-3 text-[#f6b757]"></i>Temple within the premises</li>
-                    <li class="flex items-center"><i class="fas fa-elevator mr-3 text-[#f6b757]"></i>Lift</li>
-                    <li class="flex items-center"><i class="fas fa-tint mr-3 text-[#f6b757]"></i>24x7 Water Supply</li>
-                </ul>
-                <p class="pt-4 font-semibold">All 3BHKs ranging from 1465 to 1510 sqft.</p>
-            </div>
-        </div>
-    </section>
     
     <section id="gallery-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
-        <button id="close-gallery-modal" class="absolute top-4 right-4 text-white hover:text-gray-300 text-4xl font-bold">&times;</button>
+        <button id="close-gallery-modal" class="absolute top-4 right-6 text-white hover:text-gray-300 text-5xl font-bold">&times;</button>
         <div class="relative max-w-4xl max-h-[90vh] w-full h-full">
             <img id="gallery-modal-image" src="" alt="Enlarged gallery view" class="w-full h-full object-contain">
         </div>
@@ -443,15 +457,38 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Mobile menu toggle
+        // --- Start of New Mobile Menu Logic ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        const openMobileMenu = () => {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                history.pushState({ mobileMenuOpen: true }, 'Mobile Menu');
+            }
+        };
+
+        const closeMobileMenu = () => {
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        };
+
+        mobileMenuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (mobileMenu.classList.contains('hidden')) {
+                openMobileMenu();
+            } else {
+                history.back(); // Triggers popstate which closes the menu
+            }
         });
 
-        // Smooth scrolling for anchor links
+        window.addEventListener('popstate', () => {
+            closeMobileMenu();
+        });
+        // --- End of New Mobile Menu Logic ---
+
+        // Smooth scrolling for ALL anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             if (anchor.getAttribute('href') !== '#privacy-policy') {
                 anchor.addEventListener('click', function (e) {
@@ -463,8 +500,9 @@
                             targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                     }
+                    
                     if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
+                       history.back();
                     }
                 });
             }
@@ -563,44 +601,6 @@
             });
         }
         
-        // Contact Dropdown Logic
-        const contactDropdownButton = document.getElementById('contact-dropdown-button');
-        const contactDropdownMenu = document.getElementById('contact-dropdown-menu');
-
-        if(contactDropdownButton) {
-            contactDropdownButton.addEventListener('click', () => {
-                contactDropdownMenu.classList.toggle('hidden');
-            });
-        }
-
-        // Close dropdown when clicking outside
-        window.addEventListener('click', function(e){
-            if (contactDropdownButton && !contactDropdownButton.contains(e.target) && contactDropdownMenu && !contactDropdownMenu.contains(e.target)){
-                contactDropdownMenu.classList.add('hidden');
-            }
-        });
-        
-        // Project Details Modal Logic
-        const projectCardTrigger = document.getElementById('project-card-trigger');
-        const projectDetailsModal = document.getElementById('project-details-modal');
-        const closeProjectDetailsModalButton = document.getElementById('close-project-details-modal');
-
-        if(projectCardTrigger) {
-            projectCardTrigger.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal(projectDetailsModal);
-            });
-        }
-
-        if(closeProjectDetailsModalButton) {
-            closeProjectDetailsModalButton.addEventListener('click', () => closeModal(projectDetailsModal));
-        }
-        if(projectDetailsModal) {
-            projectDetailsModal.addEventListener('click', (e) => {
-                if (e.target === projectDetailsModal) closeModal(projectDetailsModal);
-            });
-        }
-
         // Gallery Modal Logic
         const galleryImages = document.querySelectorAll('.gallery-image');
         const galleryModal = document.getElementById('gallery-modal');
@@ -619,7 +619,10 @@
         }
         if (galleryModal) {
             galleryModal.addEventListener('click', (e) => {
-                if (e.target === galleryModal) closeModal(galleryModal);
+                // Close if clicking on the background, not the image itself
+                if (e.target !== galleryModalImage) {
+                    closeModal(galleryModal);
+                }
             });
         }
 

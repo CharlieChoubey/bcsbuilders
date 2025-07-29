@@ -18,14 +18,6 @@
             cursor: default; /* Sets the default cursor for the whole page */
             background-color: #f9fafb; /* A light gray fallback */
         }
-        section[id] {
-            scroll-margin-top: 120px; /* Adjust this value based on header height */
-        }
-        @media (min-width: 1024px) {
-            section[id] {
-                scroll-margin-top: 80px;
-            }
-        }
 
         /* Ensure interactive elements are still clearly clickable */
         a, button, .service-card, label, .gallery-image, .slider-slide {
@@ -144,9 +136,9 @@
 <body class="text-gray-800">
 
     <!-- Header & Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex-1 min-w-0">
+    <header id="main-header" class="bg-white shadow-md sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-3 flex justify-center lg:justify-between items-center relative">
+            <div class="lg:flex-1 min-w-0">
                 <a href="#" class="h-14 inline-block">
                     <img src="BCS Old.jpg" alt="BCS Builders Logo" class="h-full w-auto">
                 </a>
@@ -165,7 +157,7 @@
                 <a href="#gallery" class="text-gray-600 hover:text-[#f6b757] transition">Gallery</a>
                 <a href="#testimonials" class="text-gray-600 hover:text-[#f6b757] transition">Testimonials</a>
             </div>
-            <button id="mobile-menu-button" class="lg:hidden text-gray-600">
+            <button id="mobile-menu-button" class="lg:hidden text-gray-600 absolute right-6 top-1/2 -translate-y-1/2">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
@@ -542,13 +534,19 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             if (anchor.getAttribute('href') !== '#privacy-policy') {
                 anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    if (targetId && targetId.length > 1) {
-                        e.preventDefault();
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const header = document.getElementById('main-header');
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                     
                     if (!mobileMenu.classList.contains('hidden')) {

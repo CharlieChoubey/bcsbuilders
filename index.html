@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden; /* Prevents horizontal scrollbar from animations */
@@ -15,8 +18,17 @@
             cursor: default; /* Sets the default cursor for the whole page */
             background-color: #f9fafb; /* A light gray fallback */
         }
+        section[id] {
+            scroll-margin-top: 120px; /* Adjust this value based on header height */
+        }
+        @media (min-width: 1024px) {
+            section[id] {
+                scroll-margin-top: 80px;
+            }
+        }
+
         /* Ensure interactive elements are still clearly clickable */
-        a, button, .project-card, .service-card, label, .gallery-image {
+        a, button, .service-card, label, .gallery-image, .slider-slide {
             cursor: pointer;
         }
         input, textarea {
@@ -157,6 +169,12 @@
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
+        <!-- Mobile Contact Bar -->
+        <div class="lg:hidden bg-white border-t border-gray-200 p-2 flex justify-around">
+            <a href="tel:+919801063161" class="bg-[#ff5757] text-white px-3 py-2 text-sm rounded-md hover:bg-[#ff6f6f] transition cta-button flex items-center font-semibold flex-1 justify-center mx-1"><i class="fas fa-phone-alt mr-2"></i> Call</a>
+            <a href="https://wa.me/919801063161" target="_blank" rel="noopener noreferrer" class="bg-[#ff5757] text-white px-3 py-2 text-sm rounded-md hover:bg-[#ff6f6f] transition cta-button flex items-center font-semibold flex-1 justify-center mx-1"><i class="fab fa-whatsapp mr-2"></i> WhatsApp</a>
+            <a href="mailto:bcscelestialbuilders@gmail.com" class="bg-[#ff5757] text-white px-3 py-2 text-sm rounded-md hover:bg-[#ff6f6f] transition cta-button flex items-center font-semibold flex-1 justify-center mx-1"><i class="fas fa-envelope mr-2"></i> Email</a>
+        </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white py-4">
             <a href="#about" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
@@ -164,11 +182,6 @@
             <a href="#services" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Services</a>
             <a href="#gallery" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Gallery</a>
             <a href="#testimonials" class="block px-6 py-2 text-gray-600 hover:bg-gray-100">Testimonials</a>
-            <div class="border-t mt-2 pt-2 px-6 space-y-2">
-                <a href="tel:+919801063161" class="block py-2 text-gray-600 hover:bg-gray-100"><i class="fas fa-phone-alt mr-2 text-[#f6b757]"></i> Call Us</a>
-                <a href="https://wa.me/919801063161" target="_blank" rel="noopener noreferrer" class="block py-2 text-gray-600 hover:bg-gray-100"><i class="fab fa-whatsapp mr-2 text-[#f6b757]"></i> WhatsApp Us</a>
-                <a href="mailto:bcscelestialbuilders@gmail.com" class="block py-2 text-gray-600 hover:bg-gray-100"><i class="fas fa-envelope mr-2 text-[#f6b757]"></i> Email Us</a>
-            </div>
         </div>
     </header>
 
@@ -659,12 +672,6 @@
             currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
             updateSlider();
         });
-        
-        setInterval(() => {
-             currentIndex = (currentIndex + 1) % totalSlides;
-            updateSlider();
-        }, 5000); // Auto-slide every 5 seconds
-
 
         // Gallery Modal Logic
         const galleryImages = document.querySelectorAll('.gallery-image');

@@ -611,29 +611,6 @@
         if (consultationCtaButton) {
             consultationCtaButton.addEventListener('click', (e) => {
                 e.preventDefault();
-            
-                const scriptURL = "https://script.google.com/macros/s/AKfycbwhiIACbo-PgoP2DpPW4RF91rORmLoRZ1-xrgZqVDjHSa14DRyqveb6_OBzKvyBggLx/exec";
-                // -----------------------------------------
-
-                const formData = new FormData(consultationForm);
-                const data = {
-                    name: formData.get('name'),
-                    contact_method: formData.get('contact_method'),
-                    contact_detail: formData.get('contact_detail')
-                };
-
-                fetch(scriptURL, { method: 'POST', body: JSON.stringify(data)})
-                    .then(response => {
-                        console.log('Success!', response);
-                        consultationFormContainer.classList.add('hidden');
-                        successMessage.classList.remove('hidden');
-                        
-                        setTimeout(() => {
-                            closeModal(consultationModal);
-                        }, 3000);
-                    })
-                    .catch(error => console.error('Error!', error.message));
-
                 openModal(consultationModal);
                 // Reset form on open
                 consultationFormContainer.classList.remove('hidden');
@@ -673,12 +650,29 @@
         if(consultationForm) {
             consultationForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                consultationFormContainer.classList.add('hidden');
-                successMessage.classList.remove('hidden');
                 
-                setTimeout(() => {
-                    closeModal(consultationModal);
-                }, 3000); // Hide modal after 3 seconds
+                // --- PASTE YOUR GOOGLE APPS SCRIPT URL HERE ---
+                const scriptURL = "PASTE YOUR GOOGLE APPS SCRIPT URL HERE";
+                // -----------------------------------------
+
+                const formData = new FormData(consultationForm);
+                const data = {
+                    name: formData.get('name'),
+                    contact_method: formData.get('contact_method'),
+                    contact_detail: formData.get('contact_detail')
+                };
+
+                fetch(scriptURL, { method: 'POST', body: JSON.stringify(data)})
+                    .then(response => {
+                        console.log('Success!', response);
+                        consultationFormContainer.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                        
+                        setTimeout(() => {
+                            closeModal(consultationModal);
+                        }, 3000);
+                    })
+                    .catch(error => console.error('Error!', error.message));
             });
         }
         

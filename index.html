@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
     <title>BCS Builders - Quality Construction in Morabadi, Ranchi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -661,9 +661,7 @@
             consultationForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
-            
                 const scriptURL = "https://script.google.com/macros/s/AKfycbyHiS1u_1Yw3QDmUhJY81WbWtOdSW6SZea7UjEnKszxq4wAQ8DxCqOe3wTdbvIIg3s7JA/exec";
-                // -----------------------------------------
                 
                 submitButton.disabled = true;
                 submitButton.textContent = 'Submitting...';
@@ -734,8 +732,7 @@
         }
         if (galleryModal) {
             galleryModal.addEventListener('click', (e) => {
-                // Close if clicking on the background, not the image itself
-                if (e.target !== galleryModalImage) {
+                if (e.target === galleryModal) {
                     closeModal(galleryModal);
                 }
             });

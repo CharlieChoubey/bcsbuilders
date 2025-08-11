@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCS Builders - Quality Construction in Morabadi, Ranchi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Hero_Banner.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Hero_Banner_New.jpg') no-repeat center center/cover;
             animation: zoomIn 20s ease-in-out infinite alternate;
             z-index: -1;
         }
@@ -70,7 +70,7 @@
             z-index: -1;
         }
 
-        #about::before {
+        #about::before, #what-drives-us::before {
             background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('Background_Image.jpg');
             animation: zoomIn 30s ease-in-out infinite alternate;
         }
@@ -200,36 +200,46 @@
         <!-- About Us Section -->
         <section id="about" class="py-20 background-section">
             <div class="container mx-auto px-6 relative z-10">
-                <div class="grid md:grid-cols-2 gap-12 items-center bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
-                    <div class="animate-on-scroll fade-in-left">
-                        <img src="_DSC0111.jpg" alt="BCS Builders Team" class="rounded-lg shadow-xl w-full">
+                <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="animate-on-scroll fade-in-left">
+                            <img src="_DSC0111.jpg" alt="BCS Builders Team" class="rounded-lg shadow-xl w-full">
+                        </div>
+                        <div class="animate-on-scroll fade-in-right">
+                            <h2 class="text-3xl font-bold text-gray-800 mb-4">About B<span class="text-[#ff5757]">C</span>S Builders</h2>
+                            <p class="text-gray-600 mb-6">
+                                BCS Builders is a reputable developer company nestled in the heart of Morabadi, Ranchi. Founded by two visionary brothers, following the Entrepreneurial footsteps of their Father, the company brings a unique blend of familial trust and professional expertise to every project. With a deep understanding of the region’s architectural character and local needs, BCS Builders is dedicated to transforming blueprints into reality—always with the homeowner’s vision in mind.
+                            </p>
+                        </div>
                     </div>
-                    <div class="animate-on-scroll fade-in-right">
-                        <h2 class="text-3xl font-bold text-gray-800 mb-4">About B<span class="text-[#ff5757]">C</span>S Builders</h2>
-                        <p class="text-gray-600 mb-6">
-                            Based in the heart of Morabadi, Ranchi, BCS Builders has been a cornerstone of local construction and development for over a decade. We are a team of passionate professionals dedicated to creating spaces that are not just buildings, but homes and thriving business environments. Our philosophy is simple: combine modern architectural design with robust engineering and transparent processes.
-                        </p>
-                        <div class="text-center">
-                            <div class="text-4xl font-bold text-[#f6b757]">100%</div>
-                            <p class="text-gray-600 font-semibold">Guaranteed Client Satisfaction</p>
+                    <div class="mt-20">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Meet the Builders</h3>
+                        <div class="grid md:grid-cols-3 gap-8 items-center">
+                            <div class="md:col-span-1 flex flex-col items-center space-y-4 animate-on-scroll fade-in-up">
+                                <img src="Aman_photo.jpg" alt="Aman Gupta" class="rounded-full shadow-xl w-48 h-48 md:w-56 md:h-56 object-cover">
+                                <p class="text-xl font-semibold text-gray-800">Aman Gupta</p>
+                            </div>
+                            <div class="md:col-span-1 flex flex-col items-center space-y-4 animate-on-scroll fade-in-up" style="transition-delay: 150ms;">
+                                <img src="Abhi_photo.JPG" alt="Abhi Gupta" class="rounded-full shadow-xl w-48 h-48 md:w-56 md:h-56 object-cover">
+                                <p class="text-xl font-semibold text-gray-800">Abhi Gupta</p>
+                            </div>
+                            <div class="md:col-span-1 animate-on-scroll fade-in-up" style="transition-delay: 300ms;">
+                                <p class="text-gray-600 text-center md:text-left">Following in the entrepreneurial footsteps of their father, who established a renowned clothing business in the heart of Ranchi, brothers Aman and Abhi Gupta bring a legacy of quality and trust to the construction industry. Together, they are building a new future for the city, one exceptional home at a time.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-20 bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-lg">
-                    <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Meet the Builders</h3>
-                    <div class="grid md:grid-cols-3 gap-8 items-center">
-                        <div class="md:col-span-1 flex flex-col items-center space-y-4 animate-on-scroll fade-in-up">
-                            <img src="Aman_photo.jpg" alt="Aman Gupta" class="rounded-full shadow-xl w-48 h-48 md:w-56 md:h-56 object-cover">
-                            <p class="text-xl font-semibold text-gray-800">Aman Gupta</p>
-                        </div>
-                        <div class="md:col-span-1 flex flex-col items-center space-y-4 animate-on-scroll fade-in-up" style="transition-delay: 150ms;">
-                            <img src="Abhi_photo.JPG" alt="Abhi Gupta" class="rounded-full shadow-xl w-48 h-48 md:w-56 md:h-56 object-cover">
-                            <p class="text-xl font-semibold text-gray-800">Abhi Gupta</p>
-                        </div>
-                        <div class="md:col-span-1 animate-on-scroll fade-in-up" style="transition-delay: 300ms;">
-                            <p class="text-gray-600 text-center md:text-left">Following in the entrepreneurial footsteps of their father, who established a renowned clothing business in the heart of Ranchi, brothers Aman and Abhi Gupta bring a legacy of quality and trust to the construction industry. Together, they are building a new future for the city, one exceptional home at a time.</p>
-                        </div>
-                    </div>
+            </div>
+        </section>
+        
+        <!-- What Drives Us Section -->
+        <section id="what-drives-us" class="py-20 background-section">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="bg-white/80 backdrop-blur-sm p-12 rounded-lg shadow-lg text-center max-w-4xl mx-auto">
+                     <h2 class="text-3xl font-bold text-gray-800 mb-4 animate-on-scroll fade-in-up">What Drives Us - Building Dreams 🏠</h2>
+                     <p class="text-gray-600 text-lg animate-on-scroll fade-in-up" style="transition-delay: 150ms;">
+                        At BCS Builders, our guiding principle is simple yet powerful: “Building your dreams.” This tagline isn't just a slogan—it's a promise. Whether crafting cozy residences or designing functional commercial spaces, our mission is to deliver structures that reflect your dreams, built with precision, integrity, and personalized care.
+                     </p>
                 </div>
             </div>
         </section>
@@ -355,7 +365,7 @@
                     <h2 class="text-3xl font-bold text-gray-800">What Our Clients Say</h2>
                     <p class="text-gray-600 mt-2 max-w-2xl mx-auto">Our reputation is built on the satisfaction of the families and businesses we serve.</p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="grid md:grid-cols-3 gap-8">
                     <!-- Testimonial 1 -->
                     <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg animate-on-scroll fade-in-up shadow-lg">
                         <i class="fas fa-quote-left text-3xl text-[#f6b757] mb-4"></i>
@@ -364,11 +374,18 @@
                         <div class="text-sm text-gray-500">Future Punam Enclave Resident</div>
                     </div>
                     <!-- Testimonial 2 -->
-                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg animate-on-scroll fade-in-up" style="transition-delay: 150ms; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);">
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg animate-on-scroll fade-in-up" style="transition-delay: 150ms;">
                         <i class="fas fa-quote-left text-3xl text-[#f6b757] mb-4"></i>
                         <p class="text-gray-600 mb-6">Securing our future home with BCS Builders was a great decision. The early-bird rates were fantastic, and seeing the project progress with such high-quality materials gives us immense confidence.</p>
                         <div class="font-semibold text-gray-800">- Priya & Sameer</div>
                         <div class="text-sm text-gray-500">Future Punam Enclave Residents</div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg animate-on-scroll fade-in-up" style="transition-delay: 300ms;">
+                        <i class="fas fa-quote-left text-3xl text-[#f6b757] mb-4"></i>
+                        <p class="text-gray-600 mb-6">The builders have been very accommodating and communicative. It's reassuring to see our investment taking shape so beautifully. We're excited for the final handover!</p>
+                        <div class="font-semibold text-gray-800">- Kishan Kumar</div>
+                        <div class="text-sm text-gray-500">Future Punam Enclave Resident</div>
                     </div>
                 </div>
             </div>
@@ -661,7 +678,7 @@
             consultationForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
-                const scriptURL = "https://script.google.com/macros/s/AKfycbyHiS1u_1Yw3QDmUhJY81WbWtOdSW6SZea7UjEnKszxq4wAQ8DxCqOe3wTdbvIIg3s7JA/exec";
+                const scriptURL = "https://script.google.com/macros/s/AKfycbyRrs00ztg87gf6UPi-_RfledzxKGtnnhKcOlndvsI_gO5ybLIiq2b9N9yTPz2VUv3L4A/exec";
                 
                 submitButton.disabled = true;
                 submitButton.textContent = 'Submitting...';
